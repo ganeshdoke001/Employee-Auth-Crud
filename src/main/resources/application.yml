@@ -1,0 +1,39 @@
+
+#http://localhost:8082/h2-console
+
+spring:
+  application:
+    name: employe-service
+  datasource:
+    url: jdbc:h2:mem:testdb  # In-memory database
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
+  h2:
+    console:
+      enabled: true  # Enables the H2 console for web access
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true  # Enable SQL formatting
+        use_sql_comments: true  # Enable SQL comments in logs
+    hibernate:
+      ddl-auto: update  # Automatically creates/upgrades the database schema
+    show-sql: true  # Show SQL queries in the logs
+    
+server:
+  port: 8082
+
+#http://localhost:8082/swagger-ui/index.html
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui-custom.html
+    operationsSorter: method
+    api-docs:
+      path: /api-docs
+ 
+security:
+   jwt:
+     secret-key: 3cfa76ef14937c1c0ea519f8fc057a80fcd04a7420f8e8bcd0a7567c272e007b
+     expiration-time: 3600000
